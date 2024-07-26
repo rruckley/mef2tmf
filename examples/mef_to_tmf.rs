@@ -1,5 +1,4 @@
 //! Convert from MEF Site to TMF Site
-//! 
 
 use mef2tmf::mef_to_tmf_site;
 use meflib::w122::geographic_site::GeographicSite as MEFSite;
