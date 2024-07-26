@@ -73,7 +73,10 @@ impl From<MEFSite> for MEFTMF {
 
 /// Convert from MEF into TMF using intermedary Enum
 /// ```
-
+/// use meflib::w122::geographic_site::GeographicSite as MEFSite;
+/// use mef2tmf::mef_to_tmf_site;
+/// let mef = MEFSite::default();
+/// let tmf = mef_to_tmf_site(mef);
 /// ```
 pub fn mef_to_tmf_site(mef : MEFSite) -> TMFSite {
     let siteval = SiteVal::from(mef);
@@ -89,4 +92,18 @@ pub fn mef_to_tmf_site(mef : MEFSite) -> TMFSite {
 pub fn tmf_to_mef_site(tmf : TMFSite) -> MEFSite {
     let siteval = SiteVal::from(tmf);
     MEFSite::from(siteval)
+}
+
+#[cfg(test)]
+mod test {
+    use tmflib::tmf674::geographic_site_v4::GeographicSite as TMFSite;
+    use super::*;
+    const TMF_SITE : &str = "TMF Site";
+    #[test]
+    fn test_tmf_to_mef() {
+        let tmf = TMFSite::new(TMF_SITE);
+        let mef = tmf_to_mef_site(tmf.clone());
+
+        assert_eq!(tmf.get_name(),mef.name);
+    }
 }
