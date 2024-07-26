@@ -47,6 +47,13 @@ impl From<SiteVal> for MEFSite {
             SiteVal::TMF(t) => {
                 let mut mef = MEFSite::default();
                 mef.name = t.get_name();
+                mef.description = t.description.unwrap_or("No TMF description".to_string());
+                mef.company_name= match t.related_party {
+                    Some(v) => {
+                        "Some"
+                    },
+                    None => "TMF: No related parties"
+                }.to_string();
                 mef
             },
             SiteVal::MEF(m) => m.clone(),
