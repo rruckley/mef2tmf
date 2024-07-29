@@ -342,7 +342,7 @@ dependencies = [
  "meflib",
  "serde",
  "serde_json",
- "tmflib 0.1.19",
+ "tmflib",
 ]
 
 [[package]]
@@ -351,7 +351,6 @@ version = "0.1.0"
 dependencies = [
  "serde",
  "serde_json",
- "tmflib 0.1.18",
 ]
 
 [[package]]
@@ -554,11 +553,12 @@ dependencies = [
 
 [[package]]
 name = "serde_json"
-version = "1.0.120"
+version = "1.0.121"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "4e0d21c9a8cae1235ad58a00c11cb40d4b1e5c784f1ef2c537876ed6ffd8b7c5"
+checksum = "4ab380d7d9f22ef3f21ad3e6c1ebe8e4fc7a2000ccba2e4d71fc96f15b2cb609"
 dependencies = [
  "itoa",
+ "memchr",
  "ryu",
  "serde",
 ]
@@ -632,23 +632,6 @@ dependencies = [
  "proc-macro2",
  "quote",
  "syn",
-]
-
-[[package]]
-name = "tmflib"
-version = "0.1.18"
-source = "git+https://github.com/rruckley/tmflib.git#085c0bac4ce08dd54486bcfbe090937f578b096a"
-dependencies = [
- "base32",
- "chrono",
- "hex",
- "openapiv3",
- "rust_iso4217",
- "serde",
- "serde_json",
- "sha256",
- "tmflib-derive",
- "uuid",
 ]
 
 [[package]]
