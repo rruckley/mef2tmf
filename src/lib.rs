@@ -1,6 +1,5 @@
 use tmflib::{tmf674::geographic_site_v4::GeographicSite as TMFSite, HasName};
 use tmflib::common::related_party::RelatedParty;
-use tmflib::HasRelatedParty;
 use meflib::w122::geographic_site::GeographicSite as MEFSite;
 
 use std::convert::From;
@@ -62,16 +61,17 @@ impl From<SiteVal> for MEFSite {
         match value {
             SiteVal::TMF(t) => {
                 // This is where we do the conversion from TMF into MEF
-                let mut mef = MEFSite::default();
-                mef.name = t.get_name();
-                mef.description = t.description.unwrap_or("No TMF description".to_string());
-                mef.company_name= match t.related_party {
-                    Some(v) => {
-                        "Some"
+                MEFSite {
+                    name : t.get_name(),
+                    description: t.description.unwrap_or("No TMF description".to_string()),
+                    company_name: match t.related_party {
+                        Some(v) => {
+                            v.first().unwrap().clone().name.unwrap()
+                        }
+                        None => String::from("No name"),
                     },
-                    None => "TMF: No related parties"
-                }.to_string();
-                mef
+                    ..MEFSite::default()
+                }
             },
             SiteVal::MEF(m) => m.clone(),
         }    
