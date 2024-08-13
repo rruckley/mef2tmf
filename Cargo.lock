@@ -348,6 +348,8 @@ dependencies = [
 [[package]]
 name = "meflib"
 version = "0.1.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "13d35c216f29a56e7b24c85ff62533653bf55dde3e4f5dc1204f5723b33aad09"
 dependencies = [
  "serde",
  "serde_json",

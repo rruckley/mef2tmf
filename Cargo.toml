@@ -4,11 +4,11 @@ version = "0.1.0"
 edition = "2021"
 authors = ["Ryan Ruckley <rruckley@gmail.com"]
 description = "Library to translate from MEF into TMF"
-
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+repository = "https://github.com/rruckley/mef2tmf"
+license = "Apache-2.0"
 
 [dependencies]
+meflib = "0.1.0"
 serde = "1.0.204"
 serde_json = "1.0.120"
-meflib = { path = "../meflib"}
 tmflib = { version = "0.1.19", feature = ["v4"]}
