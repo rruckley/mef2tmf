@@ -1,3 +1,11 @@
+//!
+//! This library provides conversion functions between MEF and TMF schema where applicable.
+//! 
+//! # Supported Classes
+//! - Geographic Site: TMF674 MEFW122
+//! 
+
+
 use tmflib::{tmf674::geographic_site_v4::GeographicSite as TMFSite, HasName};
 use tmflib::common::related_party::RelatedParty;
 use meflib::w122::geographic_site::GeographicSite as MEFSite;
